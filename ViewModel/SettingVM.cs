@@ -3,10 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Page_Navegation_App.Model;
 
 namespace Page_Navegation_App.ViewModel
 {
-    internal class SettingVM
+    class SettingVM: Utilities.ViewModelBase
     {
+        private readonly PageModel _pageModel;
+
+        public bool Settings
+        {
+            get { return _pageModel.LocationStatus; }
+            set { _pageModel.LocationStatus = value; OnPropertyChanged(); }
+        }
+
+        public SettingVM()
+        {
+            _pageModel = new PageModel();
+            Settings = true;
+        }
     }
 }
